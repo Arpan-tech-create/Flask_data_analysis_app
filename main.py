@@ -37,6 +37,11 @@ def main():
     plt.savefig('static/images/shipplot.png')
     plt.close()
 
+    cnt=data['State'].value_counts()
+    fig1=px.bar(cnt,x=cnt.index,y=cnt,text=cnt)
+    image_path = os.path.join(images_dir, 'country.png')
+    fig1.write_image(image_path)
+
     return render_template('index.html')
 
 app.run(debug=True)
