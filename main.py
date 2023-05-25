@@ -18,7 +18,7 @@ if not os.path.exists(css_dir):
 js_dir = os.path.join(static_dir, 'js')
 if not os.path.exists(js_dir):
     os.makedirs(js_dir)
-app = Flask(__name__,template_folder='templptes')
+app = Flask(__name__,template_folder='templates')
 
 @app.route('/')
 def main():
@@ -37,6 +37,6 @@ def main():
     plt.savefig('static/images/shipplot.png')
     plt.close()
 
-    return "HI"
+    return render_template('index.html')
 
 app.run(debug=True)
